@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { T3Painel2Component } from './t3-painel2.component';
+import { HeaderComponent } from './header.component';
 
-describe('T3Painel2Component', () => {
-  let component: T3Painel2Component;
-  let fixture: ComponentFixture<T3Painel2Component>;
+describe('HeaderComponent', () => {
+  let component: HeaderComponent;
+  let fixture: ComponentFixture<HeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ T3Painel2Component ]
+      imports: [HeaderComponent]
     })
     .compileComponents();
-
-    fixture = TestBed.createComponent(T3Painel2Component);
+    
+    fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

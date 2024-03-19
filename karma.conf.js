@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/projeto-padrao'),
+      dir: require('path').join(__dirname, './coverage/image-similarity-screen'),
       subdir: '.',
       reporters: [
         { type: 'html' },
