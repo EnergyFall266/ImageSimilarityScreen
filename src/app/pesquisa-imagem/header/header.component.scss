@@ -1,0 +1,15 @@
+:host ::ng-deep {
+    &.p-button  {
+        
+        color: white;
+        font-size: 16px;
+        padding: 10px 24px;
+  
+      }
+      &.p-button:hover {
+        background-color: #0056b3;
+      }
+    }
+.button{
+    background-color: black; 
+}

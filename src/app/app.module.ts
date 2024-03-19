@@ -30,9 +30,13 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { AnexoService, PastaService } from './app.service';
 import { Validate_Service } from 'src/services/Validate_Service';
-import {PesquisaImagemComponent} from './pesquisa-imagem/pesquisa-imagem.component';
-import {ProductCardComponent} from './pesquisa-imagem/product-card/product-card.component';
-import {HeaderComponent} from './pesquisa-imagem/header/header.component';
+import { PesquisaImagemComponent } from './pesquisa-imagem/pesquisa-imagem.component';
+import { ProductCardComponent } from './pesquisa-imagem/product-card/product-card.component';
+import { HeaderComponent } from './pesquisa-imagem/header/header.component';
+import { FileUploadModule } from 'primeng/fileupload';
+import { ToastModule } from 'primeng/toast';
+import { DividerModule } from 'primeng/divider';
+
 export const HttpLoaderFactory = (httpClient: HttpClient) =>
   new TranslateHttpLoader(httpClient, 'assets/i18n/');
 
@@ -42,7 +46,6 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     PesquisaImagemComponent,
     ProductCardComponent,
     HeaderComponent,
-
   ],
   imports: [
     BrowserAnimationsModule,
@@ -67,6 +70,9 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     AppRoutingModule,
     ProgressSpinnerModule,
     RadioButtonModule,
+    FileUploadModule,
+    ToastModule,
+    DividerModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -78,4 +84,4 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
   providers: [PastaService, Validate_Service, AnexoService],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
