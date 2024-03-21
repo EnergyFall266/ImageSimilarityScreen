@@ -6,11 +6,9 @@
     <div>
       <p-button
         (click)="showDialog()"
-        iconPos="right"
-        icon="pi pi-external-link"
         label="Produtos"
-        ></p-button>
-        <p-toast></p-toast>
+      ></p-button>
+      <p-toast></p-toast>
       <p-dialog
         header=""
         [(visible)]="visible"
@@ -25,7 +23,11 @@
               <h3>Imagens dos Produtos</h3>
             </div>
             <div class="mr-7">
-              <p-button label="Limpar Banco" styleClass="p-button-danger" ></p-button>
+              <p-button
+                label="Limpar Banco"
+                styleClass="p-button-danger"
+                (click)="clearBanco()"
+              ></p-button>
             </div>
           </div>
         </ng-template>
@@ -35,20 +37,27 @@
             <p-fileUpload
               name="demo[]"
               url="https://www.primefaces.org/cdn/api/upload.php"
-              (onUpload)="onUpload()"
+              (onUpload)="onUploadBanco()"
               [multiple]="true"
               accept="image/*"
             >
             </p-fileUpload>
           </div>
         </div>
-        <!-- <ng-template pTemplate="footer">
-          <p-button icon="pi pi-iconName" label="Limpar Banco"></p-button>
-        </ng-template> -->
       </p-dialog>
     </div>
     <div class="flex">
-      <p-button icon="pi pi-search" iconPos="right" label="Buscar"></p-button>
+      <p-toast></p-toast>
+      <p-fileUpload
+        chooseIcon="null"
+        mode="basic"
+        name="demo[]"
+        url="https://www.primefaces.org/cdn/api/upload.php"
+        accept="image/*"
+        (onUpload)="searchUpload()"
+        [auto]="true"
+        chooseLabel="Buscar"
+      ></p-fileUpload>
     </div>
   </div>
 </div>

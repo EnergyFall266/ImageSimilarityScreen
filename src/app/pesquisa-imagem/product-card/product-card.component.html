@@ -1,1 +1,36 @@
-<p>product-card works!</p>
+<div class="card mx-8  pt-3">
+    <div class="flex justify-content-center">
+        <h3>Top 10 Imagens</h3>
+    </div>
+  <p-dataView #dv [value]="products" layout="grid" >
+    <ng-template let-product pTemplate="gridItem" class="flex justify-content-evenly">
+      <div class="col-12 sm:col-6  xl:col-4 p-2" style="width: 19rem;"> 
+        <div class=" pb-4 border-1 shadow-2 surface-border surface-card border-round">
+     
+          <div class="flex flex-column align-items-center gap-3 pb-5">
+            <img
+              class="w-full shadow-1 border-round-top"
+              [src]="
+                'https://primefaces.org/cdn/primeng/images/demo/product/' +
+                product.image
+              "
+              [alt]="product.name"
+            />
+            <div class="text-2xl font-bold">{{ product.name }}</div>
+          </div>
+          <div class="flex align-items-center justify-content-center">
+            <span class="text-xl font-semibold" *ngIf=" product.inventoryStatus === 'INSTOCK'; else tag"
+              >{{ "$" + product.price }}
+            </span>
+            <ng-template #tag>
+              <p-tag
+                [value]="product.inventoryStatus"
+                severity="danger"
+              ></p-tag>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-dataView>
+</div>

@@ -36,6 +36,9 @@ import { HeaderComponent } from './pesquisa-imagem/header/header.component';
 import { FileUploadModule } from 'primeng/fileupload';
 import { ToastModule } from 'primeng/toast';
 import { DividerModule } from 'primeng/divider';
+import { DataViewModule } from 'primeng/dataview';
+import { TagModule } from 'primeng/tag';
+import { CardModule } from 'primeng/card';
 
 export const HttpLoaderFactory = (httpClient: HttpClient) =>
   new TranslateHttpLoader(httpClient, 'assets/i18n/');
@@ -73,6 +76,9 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     FileUploadModule,
     ToastModule,
     DividerModule,
+    DataViewModule,
+    TagModule,
+    CardModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
