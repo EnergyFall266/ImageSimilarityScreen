@@ -39,6 +39,7 @@ import { DividerModule } from 'primeng/divider';
 import { DataViewModule } from 'primeng/dataview';
 import { TagModule } from 'primeng/tag';
 import { CardModule } from 'primeng/card';
+import { ImageModule } from 'primeng/image';
 
 export const HttpLoaderFactory = (httpClient: HttpClient) =>
   new TranslateHttpLoader(httpClient, 'assets/i18n/');
@@ -79,6 +80,7 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     DataViewModule,
     TagModule,
     CardModule,
+    ImageModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
