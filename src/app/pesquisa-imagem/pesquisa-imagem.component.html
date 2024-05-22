@@ -1,3 +1,8 @@
-
-<app-header [vp]="vp" ></app-header>
-<app-product-card  [vp]="vp"></app-product-card>
+<div class="grid">
+  <div class="col-6">
+    <app-side-bar [vp]="vp"></app-side-bar>
+  </div>
+  <div class="col-6">
+    <app-product-card [vp]="vp"></app-product-card>
+  </div>
+</div>

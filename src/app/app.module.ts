@@ -32,7 +32,6 @@ import { AnexoService, PastaService } from './app.service';
 import { Validate_Service } from 'src/services/Validate_Service';
 import { PesquisaImagemComponent } from './pesquisa-imagem/pesquisa-imagem.component';
 import { ProductCardComponent } from './pesquisa-imagem/product-card/product-card.component';
-import { HeaderComponent } from './pesquisa-imagem/header/header.component';
 import { FileUploadModule } from 'primeng/fileupload';
 import { ToastModule } from 'primeng/toast';
 import { DividerModule } from 'primeng/divider';
@@ -40,7 +39,8 @@ import { DataViewModule } from 'primeng/dataview';
 import { TagModule } from 'primeng/tag';
 import { CardModule } from 'primeng/card';
 import { ImageModule } from 'primeng/image';
-
+import { SideBarComponent } from './pesquisa-imagem/side-bar/side-bar.component';
+import { SidebarModule } from 'primeng/sidebar';
 export const HttpLoaderFactory = (httpClient: HttpClient) =>
   new TranslateHttpLoader(httpClient, 'assets/i18n/');
 
@@ -49,7 +49,7 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     AppComponent,
     PesquisaImagemComponent,
     ProductCardComponent,
-    HeaderComponent,
+    SideBarComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -81,6 +81,7 @@ export const HttpLoaderFactory = (httpClient: HttpClient) =>
     TagModule,
     CardModule,
     ImageModule,
+    SidebarModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

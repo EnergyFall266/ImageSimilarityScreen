@@ -1,0 +1,90 @@
+<div>
+  <p-sidebar
+    [(visible)]="sidebarVisible"
+    [showCloseIcon]="false"
+    [modal]="false"
+
+  >
+    <ng-template pTemplate="header">
+      <div class="w-full" >
+
+
+
+        <div class="flex justify-content-end">
+          <p-button (click)="showDialog()" label="Produtos"></p-button>
+          <p-toast></p-toast>
+          <p-dialog
+            header=""
+            [(visible)]="visible"
+            [modal]="true"
+            [style]="{ width: '60vw' }"
+            [draggable]="false"
+            [resizable]="false"
+          >
+            <ng-template pTemplate="header">
+              <div
+                class="flex align-items-center justify-content-between w-full"
+              >
+                <div>
+                  <h3>Imagens dos Produtos</h3>
+                </div>
+                <div class="mr-7">
+                  <p-button
+                    label="Limpar Banco"
+                    styleClass="p-button-danger"
+                    (click)="clearBanco()"
+                  ></p-button>
+                </div>
+              </div>
+            </ng-template>
+
+            <div class="card flex justify-content-evenly">
+              <div>
+                <p-fileUpload
+                  name="demo[]"
+                  url="https://www.primefaces.org/cdn/api/upload.php"
+                  (onUpload)="onUploadBanco()"
+                  [multiple]="true"
+                  accept="image/*"
+                >
+                </p-fileUpload>
+              </div>
+            </div>
+          </p-dialog>
+        </div>
+      </div>
+
+    </ng-template>
+    <ng-template pTemplate="content" >
+      <div class="h-full w-full align-content-center">
+<div class="flex justify-content-center">
+
+  <p-image
+  src="https://primefaces.org/cdn/primeng/images/galleria/galleria1.jpg"
+  alt="Image"
+  width="250"
+  ></p-image>
+</div>
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+      <div class="w-full">
+
+        <div class="flex justify-content-center">
+          <p-toast></p-toast>
+          <p-fileUpload
+          chooseIcon="null"
+          mode="basic"
+          name="demo[]"
+          url="https://www.primefaces.org/cdn/api/upload.php"
+          accept="image/*"
+          (onUpload)="searchUpload()"
+          [auto]="true"
+          chooseLabel="Buscar"
+          ></p-fileUpload>
+        </div>
+      </div>
+      </ng-template>
+  </p-sidebar>
+</div>
