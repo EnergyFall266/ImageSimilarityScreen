@@ -12,6 +12,35 @@ const STEP = environment.tarefa();
   providedIn: 'root'
 })
 
+
+export class DataService {
+  constructor() {}
+  async sendFile(file: any) {const axios = require('axios');
+
+
+  const data = new FormData();
+
+  data.append('images', file, file.name);
+  
+
+  try {
+    const response = await axios.post(
+      'http://localhost:8000/upload',
+      data, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }}
+    );
+
+    return response;
+  } catch (error: any) {
+    console.error('Erro ao enviar arquivo:', error);
+  }
+}
+
+
+  }
+
 export class AppService {
   constructor() { }
 

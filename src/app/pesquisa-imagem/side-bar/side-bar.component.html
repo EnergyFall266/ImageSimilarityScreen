@@ -3,13 +3,9 @@
     [(visible)]="sidebarVisible"
     [showCloseIcon]="false"
     [modal]="false"
-
   >
     <ng-template pTemplate="header">
-      <div class="w-full" >
-
-
-
+      <div class="w-full">
         <div class="flex justify-content-end">
           <p-button (click)="showDialog()" label="Produtos"></p-button>
           <p-toast></p-toast>
@@ -41,11 +37,10 @@
             <div class="card flex justify-content-evenly">
               <div>
                 <p-fileUpload
-                  name="demo[]"
-                  url="https://www.primefaces.org/cdn/api/upload.php"
-                  (onUpload)="onUploadBanco()"
+                  (uploadHandler)="onUploadBanco($event)"
                   [multiple]="true"
-                  accept="image/*"
+                  accept=".jpg"
+                  [customUpload]="true"
                 >
                 </p-fileUpload>
               </div>
@@ -53,38 +48,35 @@
           </p-dialog>
         </div>
       </div>
-
     </ng-template>
-    <ng-template pTemplate="content" >
+    <ng-template pTemplate="content">
       <div class="h-full w-full align-content-center">
-<div class="flex justify-content-center">
-
-  <p-image
-  src="https://primefaces.org/cdn/primeng/images/galleria/galleria1.jpg"
-  alt="Image"
-  width="550"
-  ></p-image>
-</div>
+        <div class="flex justify-content-center">
+          <p-image
+            src="https://primefaces.org/cdn/primeng/images/galleria/galleria1.jpg"
+            alt="Image"
+            width="550"
+          ></p-image>
+        </div>
       </div>
     </ng-template>
 
     <ng-template pTemplate="footer">
       <div class="w-full">
-
         <div class="flex justify-content-center">
           <p-toast></p-toast>
           <p-fileUpload
-          chooseIcon="null"
-          mode="basic"
-          name="demo[]"
-          url="https://www.primefaces.org/cdn/api/upload.php"
-          accept="image/*"
-          (onUpload)="searchUpload()"
-          [auto]="true"
-          chooseLabel="Buscar"
+            chooseIcon="null"
+            mode="basic"
+            name="demo[]"
+            url="https://www.primefaces.org/cdn/api/upload.php"
+            accept="image/*"
+            (onUpload)="searchUpload()"
+            [auto]="true"
+            chooseLabel="Buscar"
           ></p-fileUpload>
         </div>
       </div>
-      </ng-template>
+    </ng-template>
   </p-sidebar>
 </div>

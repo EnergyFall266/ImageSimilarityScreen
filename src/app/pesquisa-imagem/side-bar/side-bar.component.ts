@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MessageService } from 'primeng/api';
+import { AppService } from 'src/app/app.service';
+import { DataService } from 'src/app/app.service';
 
 import { VP_BPM } from 'src/beans/VP_BPM';
 
@@ -13,27 +15,47 @@ export class SideBarComponent {
   visible: boolean = false;
   sidebarVisible: boolean = true;
 
-  constructor(private messageService: MessageService) {}
+  constructor(private messageService: MessageService, private dataService: DataService) {}
 
   showDialog() {
     this.visible = true;
   }
 
-  onUploadBanco() {
+  async onUploadBanco(event: any) {
     this.messageService.add({
       severity: 'info',
       summary: 'Arquivo(s) enviado(s) para o banco de dados',
       detail: '',
     });
     this.visible = false;
+    console.log(event);
+    
+    const files: File[] = event.files;
+    for (let file of files) {
+      this.convertToBase64(file);
+    }
+    
   }
-
+  convertToBase64(file: File): void {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      const base64String = reader.result as string;
+      console.log(base64String);
+    };
+    reader.onerror = (error) => {
+      console.error('Error: ', error);
+    };
+  }
   searchUpload() {
+
+    
     this.messageService.add({
       severity: 'info',
       summary: 'File Uploaded',
       detail: '',
     });
+
   }
 
   clearBanco() {
