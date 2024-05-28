@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MessageService } from 'primeng/api';
-
+import * as fs from "fs";
 import { VP_BPM } from 'src/beans/VP_BPM';
 
 @Component({
@@ -28,13 +28,20 @@ export class SideBarComponent {
     this.visible = false;
   }
 
-  searchUpload() {
+  searchUpload(event: any) {
     this.messageService.add({
       severity: 'info',
       summary: 'File Uploaded',
       detail: '',
     });
-  }
+console.log(event.files[0]);
+
+let filename = event.files[0].name;
+let file = event.files[0];
+fs.writeFileSync("C:\Users\LEO\Documents\ImageSimilarityScreen\src\assets\image-search" + {filename} +".jpg", file, {
+  flag: "w"
+ })  }
+
 
   clearBanco() {
     this.messageService.add({
