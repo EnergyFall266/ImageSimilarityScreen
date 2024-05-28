@@ -41,11 +41,10 @@
             <div class="card flex justify-content-evenly">
               <div>
                 <p-fileUpload
-                  name="demo[]"
-                  url="https://www.primefaces.org/cdn/api/upload.php"
-                  (onUpload)="onUploadBanco()"
+                  (uploadHandler)="onUploadBanco($event)"
                   [multiple]="true"
-                  accept="image/*"
+                  accept=".jpg"
+                  [customUpload]="true"
                 >
                 </p-fileUpload>
               </div>
