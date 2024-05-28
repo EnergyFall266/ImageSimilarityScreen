@@ -8,14 +8,17 @@ import { VP_BPM } from 'src/beans/VP_BPM';
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
-  styleUrls: ['./side-bar.component.scss']
+  styleUrls: ['./side-bar.component.scss'],
 })
 export class SideBarComponent {
   @Input() vp!: VP_BPM;
   visible: boolean = false;
   sidebarVisible: boolean = true;
 
-  constructor(private messageService: MessageService, private dataService: DataService) {}
+  constructor(
+    private messageService: MessageService,
+    private dataService: DataService
+  ) {}
 
   showDialog() {
     this.visible = true;
@@ -34,7 +37,6 @@ export class SideBarComponent {
     for (let file of files) {
       this.convertToBase64(file);
     }
-
   }
   convertToBase64(file: File): void {
     const reader = new FileReader();
@@ -54,14 +56,8 @@ export class SideBarComponent {
       summary: 'File Uploaded',
       detail: '',
     });
-console.log(event.files[0]);
-
-let filename = event.files[0].name;
-let file = event.files[0];
-fs.writeFileSync("C:\Users\LEO\Documents\ImageSimilarityScreen\src\assets\image-search" + {filename} +".jpg", file, {
-  flag: "w"
- })  }
-
+    console.log(event.files[0]);
+  }
 
   clearBanco() {
     this.messageService.add({
@@ -71,4 +67,3 @@ fs.writeFileSync("C:\Users\LEO\Documents\ImageSimilarityScreen\src\assets\image-
     });
   }
 }
-
